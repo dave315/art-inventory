@@ -1,0 +1,8 @@
+class Series
+
+  
+
+
+
+
+end
