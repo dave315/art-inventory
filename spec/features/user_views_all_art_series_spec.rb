@@ -16,10 +16,6 @@ feature "User views all series & info", %(
 
 ) do
 
-  before(:each) do
-  
-  end
-
   title = "Chinese Vases"
   total_printed = "Total Printed: 50"
   date = "Date: 1965"

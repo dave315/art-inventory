@@ -9,7 +9,7 @@
 
     <label for="artwork_form">Art Series</label>
 
-    <select name="art_series_name">
+    <select name="art_series_id">
       <option value="" disabled selected>Select Art Series</option>
       <% @series_name_id.each do |series| %>
         <option value="<%= series.id %>"><%= series.name %></option>

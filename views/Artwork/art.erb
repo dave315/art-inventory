@@ -1,4 +1,6 @@
-<h1>Lots of art to show!</h1>
+<div class="title small-12 small-centered-columns text-center">
+  <h1>All of the Art</h1>
+</div>
 
     <table class="center">
        <thead>
@@ -7,6 +9,7 @@
            <th>Art URL</th>
            <th>Art Title</th>
            <th>Series Number</th>
+           <th>Series Name</th>
            <th>Original Date</th>
            <th>Art Description</th>
          </tr>
@@ -15,9 +18,10 @@
          <%@all_the_artwork.each do |art|%>
            <tr>
              <td><img src="<%= art.photo_url %>" alt="Resized JPEG graphic" title="Click to view" border="2" width="158" height="150" hspace="10"></td>
-             <td><a href="<%= art.photo_url%>">Image URL</a></td>
+             <td><a href="<%= art.photo_url%>"><%=art.photo_url%></a></td>
              <td><%=art.title %></td>
              <td><%=art.series_num%></td>
+             <td><%=art.series_name%></td>
              <td><%=art.date%></td>
              <td><%=art.description%></td>
            </tr>

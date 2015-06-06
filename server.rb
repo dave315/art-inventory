@@ -62,15 +62,26 @@ post "/artwork" do
   art_title = params['art_title']
   artwork_date = params['artwork_date']
   art_description = params['art_description']
-  # art_series_name = params['art_series_name'] <-- must build dropdown for this
   photo_url = params['photo_url']
+  art_series_id = params['art_series_id']
 
+  art_submission = [series_number,
+                    art_title,
+                    artwork_date,
+                    art_description,
+                    photo_url,
+                    art_series_id]
 
-  art_submission = [series_number, art_title, artwork_date, art_description, photo_url]
 
   db_connection do |conn|
-    conn.exec_params("INSERT INTO artwork(series_num, title, artwork_date, description, photo_url)
-    VALUES($1, $2, $3, $4, $5)", art_submission)
+    conn.exec_params("INSERT INTO artwork(series_num,
+                                          title,
+                                          artwork_date,
+                                          description,
+                                          photo_url,
+                                          series_id)
+
+    VALUES($1, $2, $3, $4, $5, $6)", art_submission)
   end
   redirect "/artwork"
 end

@@ -1,5 +1,5 @@
 class Artwork
-  attr_reader :title, :series_num, :date, :description, :photo_url
+  attr_reader :title, :series_num, :date, :description, :photo_url, :series_id
 
   def initialize(title, series_num, date, description, photo_url, series_id)
     @title = title
@@ -7,9 +7,16 @@ class Artwork
     @date = date
     @description = description
     @photo_url = photo_url
+    @series_id = series_id
+  end
 
-    #pass in series Id and then make another method to convert series_id
-    #to the actual series name and display on the database
+  def series_name
+    the_series_name = self.class.db_connection do |conn|
+      conn.exec("SELECT name FROM series
+                 WHERE id = #{series_id}")
+    end.to_a.first
+
+    the_series_name['name']
   end
 
   def self.db_connection
