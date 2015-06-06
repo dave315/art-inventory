@@ -1,10 +1,14 @@
 <h1><h2>
 
   <div class="form_container small-6 small-centered-columns text-center small-offset-3">
-    <form action="/series" method="post">
-      <label for="series_name">Series Name</label>
-      <input type="text" id="series_name" name="series_name" required>
+    <form action="/series" method="post" id="series_form">
+      <label for="series_name">Art Series Form</label>
+      <input type="text" name="series_name" id="series_name" placeholder="Art series name goes here" required>
+      <input type="text" name="total_printed" id="total_printed" placeholder="How many were printed?..." required>
+      <input type="date" name="series_date" id="series_date">
+      <textarea rows "4" cols "50" name="series_description" id="series_description"
+      placeholder="Enter description..." form="series_form"></textarea>
 
-      <input class="button round" type="submit">
+      <input id="submit" name="submit" class="button round" type="submit">
     </form>
   </div>

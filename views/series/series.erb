@@ -1,0 +1,7 @@
+<h1>Art Series</h1>
+
+<% @all_series.each do |series| %>
+  <ul>
+    <li><a href="/series/<%= series.id %>"><%=series.name%></a></li>
+  </ul>
+<% end %>
