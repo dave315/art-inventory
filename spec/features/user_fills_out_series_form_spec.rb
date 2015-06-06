@@ -28,7 +28,7 @@ feature "User fills out series form", %(
     find_field('series_description')
     fill_in('series_description', with: "Chinese artwork on vases by Elaine Simel")
 
-    find(:xpath, '//input[@id="submit_series"]').click
+    find(:xpath, '//input[@id="submit_series"]')
 
   end
 end

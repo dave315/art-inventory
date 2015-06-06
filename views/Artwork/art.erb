@@ -1,1 +1,26 @@
 <h1>Lots of art to show!</h1>
+
+    <table class="center">
+       <thead>
+         <tr>
+           <th>Art Photo</th>
+           <th>Art URL</th>
+           <th>Art Title</th>
+           <th>Series Number</th>
+           <th>Original Date</th>
+           <th>Art Description</th>
+         </tr>
+       </thead>
+       <tbody>
+         <%@all_the_artwork.each do |art|%>
+           <tr>
+             <td><img src="<%= art.photo_url %>" alt="Resized JPEG graphic" title="Click to view" border="2" width="158" height="150" hspace="10"></td>
+             <td><a href="<%= art.photo_url%>">Image URL</a></td>
+             <td><%=art.title %></td>
+             <td><%=art.series_num%></td>
+             <td><%=art.date%></td>
+             <td><%=art.description%></td>
+           </tr>
+         <% end %>
+       </tbody>
+     </table>

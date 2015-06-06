@@ -20,6 +20,7 @@ get "/" do
 end
 
 get "/artwork" do
+  @all_the_artwork = Artwork.all
   erb :'artwork/art'
 end
 

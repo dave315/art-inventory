@@ -8,35 +8,28 @@ feature "User views all art & info", %(
   Acceptance Criteria:
   [ ] I can view a table of all submitted art
   [ ] There should be a column for the following:
-  [ ] Title
+  [x] Title
   [ ] Art Series
   [ ] Number in the series
   [ ] Photo (URL for now)
   [ ] Artwork Date
+  [ ] Artwork description
 
-# ) do
-#
-#   before(:each) do
-#
-#   end
-#
-#   title = "Chinese Vases"
-#   total_printed = "Total Printed: 50"
-#   date = "Date: 1965"
-#   description = "Chinese artwork on vases by Elaine Simel"
-#
-#
-#   scenario "user sees all series" do
-#     visit '/series'
-#     expect(page).to have_content "Chinese Vases"
-#   end
-#
-#   scenario "user clicks on series and sees specific information" do
-#     visit "/series"
-#     click_link('Chinese Vases')
-#     expect(page).to have_content title
-#     expect(page).to have_content total_printed
-#     expect(page).to have_content date
-#     expect(page).to have_content description
-#     end
-# end
+) do
+
+  title = "Original Art"
+  series_num = "1"
+  date = "1990"
+  description = "Original wale art"
+  photo_url = "http://i.imgur.com/rwj3It7.jpg"
+
+  scenario "user clicks artwork and sees specific information" do
+    visit "/artwork"
+    expect(page).to have_content title
+    expect(page).to have_content series_num
+    expect(page).to have_content date
+    expect(page).to have_content description
+    expect(page).to have_content photo_url
+  end
+
+end
