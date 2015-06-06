@@ -19,6 +19,14 @@ get "/" do
   erb :index
 end
 
+get "/seriesform" do
+  erb :'series/series_form'
+end
+
+get "/artform" do
+  erb :'artwork/artwork_form'
+end
+
 get "/series" do
   @all_series = Series.all
   erb :'series/series'

@@ -17,9 +17,12 @@ feature "User fills out artwork form", %(
 
   scenario "user fills out name in series form" do
     visit '/'
-    find_field('series_name')
-    fill_in('series_name', with: 'Chinese Vases')
-    find(:xpath, '//input[@id="submit"]')
+    find_field('art_title')
+    find_field('series_number')
+    find_field('art_series_name')
+    find_field('photo_url')
+    find_field('artwork_date')
+    find(:xpath, '//input[@id="submit_art"]')
 
   end
 end
