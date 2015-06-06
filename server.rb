@@ -19,12 +19,17 @@ get "/" do
   erb :index
 end
 
-get "/seriesform" do
-  erb :'series/series_form'
+get "/artwork" do
+  erb :'artwork/art'
 end
 
 get "/artform" do
+  @series_name_id = Series.all
   erb :'artwork/artwork_form'
+end
+
+get "/seriesform" do
+  erb :'series/series_form'
 end
 
 get "/series" do
@@ -49,4 +54,22 @@ post "/series" do
     VALUES($1, $2, $3, $4)", submission)
   end
   redirect "/series"
+end
+
+post "/artwork" do
+  series_number = params['series_number']
+  art_title = params['art_title']
+  artwork_date = params['artwork_date']
+  art_description = params['art_description']
+  # art_series_name = params['art_series_name'] <-- must build dropdown for this
+  photo_url = params['photo_url']
+
+
+  art_submission = [series_number, art_title, artwork_date, art_description, photo_url]
+
+  db_connection do |conn|
+    conn.exec_params("INSERT INTO artwork(series_num, title, artwork_date, description, photo_url)
+    VALUES($1, $2, $3, $4, $5)", art_submission)
+  end
+  redirect "/artwork"
 end

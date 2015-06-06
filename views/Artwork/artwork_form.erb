@@ -1,13 +1,33 @@
-<h1>Artwork Form</h1>
+<div class="title small-12 small-centered-columns text-center">
+  <h1>Artwork Form</h1>
+</div>
 
 <div class="form_container small-6 small-centered-columns text-center small-offset-3">
-  <form action="/art" method="post" id="artwork_form">
-    <label for="artwork_form">Artwork Submission Form</label>
+  <form action="/artwork" method="post" id="artwork_form">
+    <label for="artwork_form">Title</label>
     <input type="text" name="art_title" id="art_title" placeholder="Artwork title..">
-    <input type="text" name="art_series_name" id="art_series_name" placeholder="What art series?">
+
+    <label for="artwork_form">Art Series</label>
+
+    <select name="art_series_name">
+      <option value="" disabled selected>Select Art Series</option>
+      <% @series_name_id.each do |series| %>
+        <option value="<%= series.id %>"><%= series.name %></option>
+      <% end %>
+    </select>
+
+    <label for="artwork_form">Series Number</label>
     <input type="text" name="series_number" id="series_number" placeholder="What number is in the series?">
+
+    <label for="artwork_form">Photo URL</label>
     <input type="url" name="photo_url" id="photo_url" placeholder="Art photo URL">
+
+    <label for="artwork_form">Artwork Date</label>
     <input type="date" name="artwork_date" id="artwork" placeholder="Date art was created">
+
+    <label for="artwork_form">Description</label>
+    <textarea rows "4" cols "50" name="art_description" id="art_description"
+    placeholder="Enter description..." form="artwork_form"></textarea>
 
     <input type="submit" id="submit_art" class="button round" name="art_submit">
   </form>

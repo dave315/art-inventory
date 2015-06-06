@@ -14,7 +14,7 @@ feature "User fills out series form", %(
 ) do
 
   scenario "user fills out name in series form" do
-    visit '/'
+    visit '/seriesform'
 
     find_field('series_name')
     fill_in('series_name', with: 'Chinese Vases')
@@ -28,7 +28,7 @@ feature "User fills out series form", %(
     find_field('series_description')
     fill_in('series_description', with: "Chinese artwork on vases by Elaine Simel")
 
-    find(:xpath, '//input[@id="submit_series"]')
+    find(:xpath, '//input[@id="submit_series"]').click
 
   end
 end
