@@ -9,6 +9,14 @@
 </head>
 
   <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><a href="/">Home</a></li>
+          <li><a href="/series">Art Series</a></li>
+        </ul>
+      </section>
+    </nav>
 
     <% flash.keys.each do |type| %>
       <div data-alert class="flash <%= type %> alert-box radius">
